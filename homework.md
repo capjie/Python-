@@ -21,20 +21,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Name is L and Id is 17271223\n"
+      "L 17271223\n"
      ]
     }
    ],
    "source": [
     "id,name =  17271223,'L'\n",
-    "print('Name is {} and Id is {}'.format(name,id))\n"
+    "print(name,id)\n"
    ]
   },
   {
@@ -129,30 +129,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "输入一个4位整数:\n",
-      "1234\n",
-      "10\n"
-     ]
-    }
-   ],
-   "source": [
-    "'''\n",
-    "将输入的字符串转化成列表，并将列表中的数据转化成整型数据\n",
-    "'''\n",
-    "\n",
-    "num = input('输入一个4位整数:\\n')\n",
-    "num1=map(int,list(num))#funciton = int()\n",
-    "# print(type(num1))\n",
-    "sum1 = sum(num1)\n",
-    "print(sum1)"
-   ]
+   "outputs": [],
+   "source": []
   },
   {
    "cell_type": "markdown",
@@ -164,35 +144,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "usage: ipykernel_launcher.py [-h] [-p PORT] {client,server} host [bytecount]\n",
-      "ipykernel_launcher.py: error: argument role: invalid choice: 'C:\\\\Users\\\\卢杰\\\\AppData\\\\Roaming\\\\jupyter\\\\runtime\\\\kernel-77d89d6b-2f80-4b7d-85cb-1bf4d8ff673a.json' (choose from 'client', 'server')\n"
-     ]
-    },
-    {
-     "ename": "SystemExit",
-     "evalue": "2",
-     "output_type": "error",
-     "traceback": [
-      "An exception has occurred, use %tb to see the full traceback.\n",
-      "\u001b[1;31mSystemExit\u001b[0m\u001b[1;31m:\u001b[0m 2\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "C:\\Users\\卢杰\\AppData\\Roaming\\Python\\Python37\\site-packages\\IPython\\core\\interactiveshell.py:3334: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.\n",
-      "  warn(\"To exit: use 'exit', 'quit', or Ctrl-D.\", stacklevel=1)\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "# Foundations of Python Network Programming, Third Edition\n",
     "# TCP client and server that leave too much data waiting\n",
@@ -256,19 +210,18 @@
     "    sock.close()\n",
     "\n",
     "if __name__ == '__main__':\n",
-    "    choices = {'client': client, 'server': server}#创建一个字典--choices\n",
-    "    parser = argparse.ArgumentParser(description='Get deadlocked over TCP')#提示Get deadlocker over TCP\n",
-    "    #parser.add_argument:运行程序时，给定参数，通过调用给定的参数执行程序\n",
-    "    parser.add_argument('role', choices=choices, help='which role to play')#当使用-h或者--help时候出现的提示，给定client和server时运行\n",
+    "    choices = {'client': client, 'server': server}\n",
+    "    parser = argparse.ArgumentParser(description='Get deadlocked over TCP')\n",
+    "    parser.add_argument('role', choices=choices, help='which role to play')\n",
     "    parser.add_argument('host', help='interface the server listens at;'\n",
-    "                        ' host the client sends to')#当使用-h或者--help时候出现的提示，没有输入时默认server\n",
-    "    parser.add_argument('bytecount', type=int, nargs='?', default=16, #给定整数型数据才调用\n",
-    "                        help='number of bytes for client to send (default 16)')#当使用-h或者--help时候出现的提示，默认bytecount为16\n",
-    "    parser.add_argument('-p', metavar='PORT', type=int, default=1060,#给定参数 为整数型数据才会调用\n",
-    "                        help='TCP port (default 1060)')#当使用-h或者--help时候出现的提示，如果没有输入对应的端口号则默认1060\n",
+    "                        ' host the client sends to')\n",
+    "    parser.add_argument('bytecount', type=int, nargs='?', default=16,\n",
+    "                        help='number of bytes for client to send (default 16)')\n",
+    "    parser.add_argument('-p', metavar='PORT', type=int, default=1060,\n",
+    "                        help='TCP port (default 1060)')\n",
     "    args = parser.parse_args()\n",
     "    function = choices[args.role]\n",
-    "    function(args.host, args.p, args.bytecount)#只有在运行PY文件后面加上对应的信息才会正确运行。如：python ./MyTCPSocket.py client 80 10"
+    "    function(args.host, args.p, args.bytecount)"
    ]
   },
   {
@@ -314,49 +267,6 @@
     "If the implementation is hard to explain, it's a bad idea.\n",
     "If the implementation is easy to explain, it may be a good idea.\n",
     "Namespaces are one honking great idea -- let's do more of those!\"\"\""
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "is出现的次数: 10\n"
-     ]
-    }
-   ],
-   "source": [
-    "zen = \"The Zen of Python, by Tim Peters\\\n",
-    "Beautiful is better than ugly.\\\n",
-    "Explicit is better than implicit.\\\n",
-    "Simple is better than complex.\\\n",
-    "Complex is better than complicated.\\\n",
-    "Flat is better than nested.\\\n",
-    "Sparse is better than dense.\\\n",
-    "Readability counts.\\\n",
-    "Special cases aren't special enough to break the rules.\\\n",
-    "Although practicality beats purity.\\\n",
-    "Errors should never pass silently.\\\n",
-    "Unless explicitly silenced.\\\n",
-    "In the face of ambiguity, refuse the temptation to guess.\\\n",
-    "There should be one-- and preferably only one --obvious way to do it.\\\n",
-    "Although that way may not be obvious at first unless you're Dutch.\\\n",
-    "Now is better than never.\\\n",
-    "Although never is often better than *right* now.\\\n",
-    "If the implementation is hard to explain, it's a bad idea.\\\n",
-    "If the implementation is easy to explain, it may be a good idea.\\\n",
-    "Namespaces are one honking great idea -- let's do more of those!\"\n",
-    "def Statistics(str1):\n",
-    "    sub = 'is'\n",
-    "    return str1.count(sub)\n",
-    "\n",
-    "if __name__ =='__main__':\n",
-    "    num=Statistics(zen)\n",
-    "    print('is出现的次数:',num)"
    ]
   },
   {
